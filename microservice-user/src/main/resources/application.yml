@@ -1,0 +1,16 @@
+server:
+  port: 7912
+
+spring:
+  application:
+    name: microservice-user
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+feign:
+  hystrix:
+    enabled: true
+
+
