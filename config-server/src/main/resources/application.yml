@@ -1,0 +1,18 @@
+server:
+  port: 8780
+
+spring:
+  application:
+    name: config-server
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/Mr-zuo/config-center.git
+          username: Mr-zuo
+          password: 8683679abcd
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/

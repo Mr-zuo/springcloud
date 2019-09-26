@@ -17,6 +17,7 @@
 
     <modules>
         <module>common-zuul</module>
+        <module>config-server</module>
         <module>discovery-center</module>
         <module>microservice-movie</module>
         <module>microservice-user</module>
