@@ -16,3 +16,9 @@ eureka:
   client:
     serviceUrl:
       defaultZone: http://localhost:8761/eureka/
+#localhost:8780/actuator/bus-refresh通知各client配置更新
+management:
+  endpoints:
+    web:
+      exposure:
+        include: bus-refresh
