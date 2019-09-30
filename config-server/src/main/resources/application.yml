@@ -10,7 +10,7 @@ spring:
         git:
           uri: https://github.com/Mr-zuo/config-center.git
           username: Mr-zuo
-          password: 8683679abcd
+          password: wewq1
 
 eureka:
   client:
