@@ -1,0 +1,17 @@
+server:
+  port: 8750
+
+spring:
+  application:
+    name: common-sleuth
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+#zipkin启动报错无法访问的解决方法
+management:
+  metrics:
+    web:
+      server:
+        auto-time-requests: false
