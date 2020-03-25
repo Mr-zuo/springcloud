@@ -4,11 +4,13 @@ package com.ron.combat.microserviceuser.utils;
 import java.security.MessageDigest;
 import java.util.Random;
 
+import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.codec.binary.Hex;
 
 /**
  * MD5加盐加密
  */
+@Slf4j
 public class PasswordUtils {
     /**
      * 生成含有随机盐的密码
