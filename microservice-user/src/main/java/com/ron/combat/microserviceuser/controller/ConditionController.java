@@ -51,4 +51,6 @@ public class ConditionController {
         String test = remoteClient.self();
         return "This is feign "+test;
     }
+
+    
 }
