@@ -23,6 +23,7 @@
         <module>discovery-center</module>
         <module>microservice-movie</module>
         <module>microservice-user</module>
+        <module>microservice-seckill</module>
     </modules>
 
     <properties>
