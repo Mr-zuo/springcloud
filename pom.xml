@@ -25,6 +25,8 @@
         <module>microservice-movie</module>
         <module>microservice-user</module>
         <module>microservice-secskill</module>
+        <module>microservice-order</module>
+        <module>microservice-admin</module>
     </modules>
 
     <properties>
