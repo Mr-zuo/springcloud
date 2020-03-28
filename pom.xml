@@ -24,7 +24,7 @@
         <module>discovery-center</module>
         <module>microservice-movie</module>
         <module>microservice-user</module>
-        <module>microservice-secondkill</module>
+        <module>microservice-secskill</module>
     </modules>
 
     <properties>

@@ -8,9 +8,9 @@
         <version>1.0-SNAPSHOT</version>
     </parent>
     <groupId>com.ron.combat</groupId>
-    <artifactId>microservice-secondkill</artifactId>
+    <artifactId>microservice-secskill</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>microservice-secondkill</name>
+    <name>microservice-secskill</name>
     <description>Demo project for Spring Boot</description>
 
     <properties>
