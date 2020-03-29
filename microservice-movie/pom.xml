@@ -43,9 +43,9 @@
             <artifactId>spring-cloud-starter-netflix-hystrix</artifactId>
         </dependency>
         <!--
-        http://localhost:7902/hystrix进入dashboard页面
+        http://localhost:7911/hystrix进入dashboard页面
         如果使用springboot2.0 和spring cloud Finchley.M8 版本搭建 使用（/actuator/hystrix.stream  而不是/hystrix.stream 为插入点）
-        http://localhost:7902/actuator/hystrix.stream
+        http://localhost:7911/actuator/hystrix.stream
         -->
         <dependency>
             <groupId>org.springframework.cloud</groupId>

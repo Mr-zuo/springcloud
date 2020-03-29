@@ -1,14 +1,14 @@
 server:
-  port: 7901
+  port: 7911
 
 spring:
   application:
     name: microservice-movie
-  zipkin:
-    base-url: http://localhost:8750
-  sleuth:
-    sampler:
-      probability: 1
+#  zipkin:
+#    base-url: http://localhost:8750
+#  sleuth:
+#    sampler:
+#      probability: 1
 
 eureka:
   client:
