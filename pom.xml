@@ -16,17 +16,17 @@
     <packaging>pom</packaging>
 
     <modules>
-        <module>common-sleuth</module>
-        <module>common-zuul</module>
-        <module>common-security</module>
-        <module>config-client</module>
-        <module>config-server</module>
-        <module>discovery-center</module>
-        <module>microservice-movie</module>
-        <module>microservice-user</module>
-        <module>microservice-secskill</module>
-        <module>microservice-order</module>
-        <module>microservice-admin</module>
+        <module>common-security</module>        <!--8740 -->
+        <module>common-sleuth</module>          <!--8750 -->
+        <module>common-zuul</module>            <!--8760 -->
+        <module>config-client</module>          <!--8780 -->
+        <module>config-server</module>          <!--8790 -->
+        <module>discovery-center</module>       <!--8761 -->
+        <module>microservice-admin</module>     <!--7901 -->
+        <module>microservice-movie</module>     <!--7911 -->
+        <module>microservice-order</module>     <!--7921 -->
+        <module>microservice-secskill</module>  <!--7931 -->
+        <module>microservice-user</module>      <!--7941 -->
     </modules>
 
     <properties>
