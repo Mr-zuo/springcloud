@@ -27,6 +27,8 @@
         <module>microservice-order</module>     <!--7921 -->
         <module>microservice-secskill</module>  <!--7931 -->
         <module>microservice-user</module>      <!--7941 -->
+
+        <module>common-utils</module>
     </modules>
 
     <properties>
