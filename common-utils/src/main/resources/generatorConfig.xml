@@ -5,6 +5,12 @@
 
 <generatorConfiguration>
     <context id="testTables" targetRuntime="MyBatis3">
+        <!-- 为模型生成序列化方法-->
+        <plugin type="org.mybatis.generator.plugins.SerializablePlugin"/>
+        <!-- 为生成的Java模型创建一个toString方法 -->
+        <plugin type="org.mybatis.generator.plugins.ToStringPlugin"/>
+        <!--生成mapper.xml时覆盖原文件-->
+        <!--<plugin type="org.mybatis.generator.plugins.UnmergeableXmlMappersPlugin" />-->
         <commentGenerator>
             <!-- 是否去除自动生成的注释 true：是 ： false:否 -->
             <property name="suppressAllComments" value="true" />
@@ -25,7 +31,7 @@
 
         <!-- targetProject:生成PO类的位置 -->
         <javaModelGenerator
-                targetPackage="com.ron.combat.commonutils.entity"
+                targetPackage="com.ron.combat.commonutils.model.entity"
                 targetProject="./src">
             <!-- enableSubPackages:是否让schema作为包的后缀 -->
             <property name="enableSubPackages" value="false" />
@@ -49,6 +55,12 @@
         </javaClientGenerator>
         <!-- 指定数据库表 -->
         <table schema="" tableName="ums_admin"></table>
+        <table schema="" tableName="ums_resource"></table>
+        <table schema="" tableName="ums_role"></table>
+        <table schema="" tableName="ums_admin_permission_relation"></table>
+        <table schema="" tableName="ums_admin_role_relation"></table>
+        <table schema="" tableName="ums_permission"></table>
+        <table schema="" tableName="ums_role_permission_relation"></table>
         <!-- <table schema="" tableName="items"></table> -->
 
     </context>

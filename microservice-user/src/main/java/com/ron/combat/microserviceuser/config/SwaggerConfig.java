@@ -31,7 +31,7 @@ public class SwaggerConfig {
     private ApiInfo apiInfo() {
         return new ApiInfoBuilder()
                 //页面标题
-                .title("newretail 使用 Swagger2 构建RESTful API")
+                .title("springCloud 接口文档")
                 //版本号
                 .version("1.0")
                 //描述

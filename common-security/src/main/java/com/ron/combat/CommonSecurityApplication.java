@@ -1,4 +1,4 @@
-package com.ron.combat.commonsecurity;
+package com.ron.combat;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
