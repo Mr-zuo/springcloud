@@ -1,6 +1,6 @@
 package com.ron.combat.microserviceuser.controller;
 
-import com.ron.combat.microserviceuser.utils.IdGeneratorUtils;
+import com.ron.combat.microserviceuser.config.IdGenerator;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -16,7 +16,7 @@ import java.util.concurrent.Executors;
 public class TestUserIDController {
 
     @Autowired
-    private IdGeneratorUtils idGenerator;
+    private IdGenerator idGenerator;
 
     @PostMapping("testBatchId")
     public void testBatchId() {

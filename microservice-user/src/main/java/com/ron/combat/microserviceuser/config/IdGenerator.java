@@ -1,4 +1,4 @@
-package com.ron.combat.microserviceuser.utils;
+package com.ron.combat.microserviceuser.config;
 
 import cn.hutool.core.date.DatePattern;
 import cn.hutool.core.date.DateTime;
@@ -14,7 +14,7 @@ import javax.annotation.PostConstruct;
 
 @Slf4j
 @Configuration
-public class IdGeneratorUtils {
+public class IdGenerator {
 
     private long workerId = 0;
 
