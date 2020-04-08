@@ -29,7 +29,7 @@ public class DistributedLock {
 	private static CountDownLatch zkLockLatch=new CountDownLatch(1);
 	
 	//分布式锁的总结点名
-	private static final String ZK_LOCK_PROJECT="imooc-locks";
+	private static final String ZK_LOCK_PROJECT="combat_locks";
 	//分布式锁节点
 	private static final String DISTRIBUTED_LOCK="distributed_lock";
 	
@@ -48,7 +48,7 @@ public class DistributedLock {
 		 * 创建zk锁的总节点，相当于eclipse工作空间下的项目
 		 * 		ZKLocks-Namespace
 		 * 			|
-		 * 			——imooc-locks
+		 * 			——combat-locks
 		 * 				|
 		 * 				__distributed_lock
 		 */

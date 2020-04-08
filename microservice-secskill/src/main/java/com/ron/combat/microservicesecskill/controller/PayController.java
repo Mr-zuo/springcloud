@@ -1,11 +1,10 @@
 package com.ron.combat.microservicesecskill.controller;
 
-import com.ron.combat.common.model.StatusRes;
+import com.ron.combat.microservicesecskill.comon.StatusRes;
 import com.ron.combat.microservicesecskill.service.BuyService;
 import com.ron.combat.microservicesecskill.utils.ZKCurator;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 /**
@@ -28,9 +27,9 @@ public class PayController {
 	}
 	
 	@PostMapping("/buy")
-	public StatusRes doGetlogin(String itemId) {
+	public StatusRes doGetlogin(@RequestParam("itemId") String itemId,@RequestParam("buyCounts") Integer buyCounts) {
 		StatusRes statusRes=new StatusRes();
-		boolean result = buyService.displayBuy(itemId);
+		boolean result = buyService.displayBuy(itemId,buyCounts);
 		statusRes.setBean(result?"订单创建成功。。":"订单创建失败");
 		return statusRes;
 	}
@@ -41,9 +40,9 @@ public class PayController {
 	 * @return
 	 */
 	@PostMapping("/buy2")
-	public StatusRes doGetlogin2(String itemId) {
+	public StatusRes doGetlogin2(@RequestParam("itemId")String itemId,@RequestParam("buyCounts") Integer buyCounts) {
 		StatusRes statusRes=new StatusRes();
-		boolean result = buyService.displayBuy(itemId);
+		boolean result = buyService.displayBuy(itemId,buyCounts);
 		statusRes.setBean(result?"订单创建成功。。":"订单创建失败");
 		return statusRes;
 	}

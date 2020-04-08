@@ -7,6 +7,6 @@ public interface BuyService {
 	 */
 	public void doBuyItem(String itemId);
 	
-	public boolean displayBuy(String itemId);
+	public boolean displayBuy(String itemId, Integer buyCounts);
 }
 
