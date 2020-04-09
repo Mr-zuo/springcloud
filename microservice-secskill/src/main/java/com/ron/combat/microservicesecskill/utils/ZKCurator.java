@@ -5,10 +5,12 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
+import javax.annotation.PostConstruct;
+
 @Component
 public class ZKCurator {
 
-	private CuratorFramework client=null; //zk客户端
+	private CuratorFramework client; //zk客户端
 	
 	final static Logger log= LoggerFactory.getLogger(ZKCurator.class);
 
@@ -19,6 +21,7 @@ public class ZKCurator {
 	/**
 	 * 初始化操作
 	 */
+	@PostConstruct
 	public void init() {
 		//使用命名空间
 		client=client.usingNamespace("zk-curator-connector");

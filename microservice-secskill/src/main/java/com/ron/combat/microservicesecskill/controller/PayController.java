@@ -35,14 +35,13 @@ public class PayController {
 	}
 	
 	/**
-	 * 模拟集群环境下数据不一致
 	 * @param itemId
 	 * @return
 	 */
 	@PostMapping("/buy2")
 	public StatusRes doGetlogin2(@RequestParam("itemId")String itemId,@RequestParam("buyCounts") Integer buyCounts) {
 		StatusRes statusRes=new StatusRes();
-		boolean result = buyService.displayBuy(itemId,buyCounts);
+		boolean result = buyService.displayBuy2(itemId,buyCounts);
 		statusRes.setBean(result?"订单创建成功。。":"订单创建失败");
 		return statusRes;
 	}

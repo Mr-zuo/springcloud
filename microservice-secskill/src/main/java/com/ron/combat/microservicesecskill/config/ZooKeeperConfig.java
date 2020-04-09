@@ -19,7 +19,7 @@ public class ZooKeeperConfig {
     public CuratorFramework getCuratorFramework() {
         // 用于重连策略，1000毫秒是初始化的间隔时间，3代表尝试重连次数
         RetryPolicy retryPolicy = new ExponentialBackoffRetry(1000, 3);
-        CuratorFramework client = CuratorFrameworkFactory.newClient("127.0.0.1:2181", retryPolicy);
+        CuratorFramework client = CuratorFrameworkFactory.newClient("127.0.0.1:2181",5000,5000, retryPolicy);
         //必须调用start开始连接ZooKeeper
         client.start();
 
