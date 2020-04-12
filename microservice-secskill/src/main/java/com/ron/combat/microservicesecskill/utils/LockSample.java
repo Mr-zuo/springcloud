@@ -49,6 +49,7 @@ public class LockSample {
         attemptLock();
     }
 
+    //创建锁的原语实现。在lock节点下创建该线程的锁节点
     private void createLock() throws KeeperException, InterruptedException {
         //如果根节点不存在，则创建根节点
         Stat stat = zkClient.exists(LOCK_ROOT_PATH, false);
@@ -79,7 +80,7 @@ public class LockSample {
             System.out.println(Thread.currentThread().getName() + " 锁获得, lockPath: " + lockPath);
             return ;
         } else {
-            // lockPath不是序号最小的节点，监听前一个节点
+            // lockPath不是序号最小的节点，监控前一个节点
             String preLockPath = lockPaths.get(index - 1);
 
             Stat stat = zkClient.exists(LOCK_ROOT_PATH + "/" + preLockPath, watcher);
@@ -97,9 +98,12 @@ public class LockSample {
         }
     }
 
+    //释放锁的原语实现
     public void releaseLock() throws KeeperException, InterruptedException {
         zkClient.delete(lockPath, -1);
         zkClient.close();
         System.out.println(" 锁释放：" + lockPath);
     }
+
+
 }

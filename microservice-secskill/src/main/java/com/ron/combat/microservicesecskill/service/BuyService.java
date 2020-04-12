@@ -11,6 +11,5 @@ public interface BuyService {
 	
 	public boolean displayBuy(String itemId, Integer buyCounts);
 
-    boolean displayBuy2(String itemId, Integer buyCounts);
 }
 

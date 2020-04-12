@@ -8,8 +8,6 @@ import org.apache.curator.framework.recipes.cache.PathChildrenCacheEvent;
 import org.apache.curator.framework.recipes.cache.PathChildrenCacheListener;
 import org.apache.zookeeper.CreateMode;
 import org.apache.zookeeper.ZooDefs.Ids;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
@@ -104,36 +102,6 @@ public class DistributedLock {
 		}
 	}
 
-	/**
-	 * 获取分布式锁（改进版，监听前节点）
-	 */
-	/*public void getLock() {
-		//使用死循环，当且仅当上一个锁释放且当前请求获得锁成功后才会跳出
-		while(true) {
-			try {
-				client.create()
-						.creatingParentsIfNeeded()
-						.withMode(CreateMode.EPHEMERAL_SEQUENTIAL)
-						.withACL(Ids.OPEN_ACL_UNSAFE) //设置 Znode 的访问权限
-						.forPath("/"+ZK_LOCK_PROJECT+"/"+DISTRIBUTED_LOCK);
-				log.info("获得分布式锁成功");
-				return;		//如果锁的节点被创建成功，则锁没有被占用
-			} catch (Exception e) {
-				log.info("获得分布式锁失败");
-				try {
-					//如果没有获取到锁，需要重新设置同步资源值
-					if (zkLockLatch.getCount()<=0) {
-						zkLockLatch=new CountDownLatch(1);
-					}
-					//阻塞线程
-					zkLockLatch.await();
-				} catch (InterruptedException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				}
-			}
-		}
-	}*/
 	
 	/**
 	 * 释放分布式锁
