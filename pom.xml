@@ -16,6 +16,7 @@
     <packaging>pom</packaging>
 
     <modules>
+        <module>common-scheduler</module>       <!--8730 -->
         <module>common-security</module>        <!--8740 -->
         <module>common-sleuth</module>          <!--8750 -->
         <module>common-zuul</module>            <!--8760 -->

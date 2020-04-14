@@ -1,4 +1,4 @@
-package com.ron.combat.microservicesecskill.config;
+package com.ron.combat.commonscheduler.config;
 
 import com.xxl.job.core.executor.impl.XxlJobSpringExecutor;
 import org.slf4j.Logger;

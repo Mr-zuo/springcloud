@@ -1,4 +1,4 @@
-package com.ron.combat.microservicesecskill.jobhandler;
+package com.ron.combat.commonscheduler.jobhandler;
 
 import com.xxl.job.core.biz.model.ReturnT;
 import com.xxl.job.core.handler.IJobHandler;
@@ -16,7 +16,6 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.util.concurrent.TimeUnit;
 
 import static com.xxl.job.core.biz.model.ReturnT.SUCCESS;
 

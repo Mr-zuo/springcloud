@@ -1,0 +1,32 @@
+server:
+  port: 8731
+
+spring:
+  application:
+    name: common-scheduler
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+feign:
+  hystrix:
+    enabled: true
+
+
+
+xxl:
+  job:
+    admin:
+      addresses: http://127.0.0.1:8080/xxl-job-admin
+    executor:
+      appname: xxl-job-executor-scheduler
+      port: 9998
+      logpath: /data/applogs/xxl-job/jobhandler
+      logretentiondays: 30
+      address:
+      ip:
+    accessToken:
+
+
+
