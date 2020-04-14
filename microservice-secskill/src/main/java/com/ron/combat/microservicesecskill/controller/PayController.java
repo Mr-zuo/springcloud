@@ -2,7 +2,6 @@ package com.ron.combat.microservicesecskill.controller;
 
 import com.ron.combat.microservicesecskill.comon.StatusRes;
 import com.ron.combat.microservicesecskill.service.BuyService;
-import com.ron.combat.microservicesecskill.utils.ZKCurator;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -17,9 +16,6 @@ public class PayController {
 	
 	@Autowired
 	private BuyService buyService;
-	
-	@Autowired
-	private ZKCurator zkCurator;
 
 	@RequestMapping("/index")
 	public String index() {
@@ -34,19 +30,4 @@ public class PayController {
 		return statusRes;
 	}
 
-	
-	/**
-	 * 判断zk是否连接
-	 * @param
-	 * @return
-	 */
-	@PostMapping("/isZKAlive")
-	public StatusRes isZKAlive() {
-		StatusRes statusRes=new StatusRes();
-		boolean isAlive = zkCurator.isZKAlive();
-		statusRes.setBean(isAlive?"连接。。":"断开");
-		return statusRes;
-	}
-	
-	
 }

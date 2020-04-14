@@ -80,16 +80,16 @@
 
 
         <!--zk 依赖 -->
-        <dependency>
+       <dependency>
             <groupId>org.apache.zookeeper</groupId>
             <artifactId>zookeeper</artifactId>
             <version>3.4.9</version>
         </dependency>
-        <dependency>
+        <!--<dependency>
             <groupId>com.github.sgroschupf</groupId>
             <artifactId>zkclient</artifactId>
             <version>0.1</version>
-        </dependency>
+        </dependency>-->
         <!-- zk 客户端依赖 -->
         <!-- 对zookeeper的底层api的一些封装 -->
         <dependency>
@@ -103,6 +103,15 @@
             <artifactId>curator-recipes</artifactId>
             <version>4.0.1</version>
         </dependency>
+
+        <!-- XXL-Job执行器所需依赖 -->
+        <!-- xxl-job-core -->
+        <dependency>
+            <groupId>com.xuxueli</groupId>
+            <artifactId>xxl-job-core</artifactId>
+            <version>2.1.2</version>
+        </dependency>
+
 
     </dependencies>
 
