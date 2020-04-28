@@ -1,0 +1,19 @@
+common-scheduler
+
+info:
+1；common-scheduler子项目为springcloud统一的定时调度项目
+2；接入的是大众点评的xxl—job分布式定时调度框架
+3；核心依赖为：
+            <dependency>
+                <groupId>com.xuxueli</groupId>
+                <artifactId>xxl-job-core</artifactId>
+                <version>2.1.2</version>
+            </dependency>
+4；项目代码是构造定时任务执行器，并注册到xxl-job-admin调度中心
+5；也可根据项目需要在各个微服务中构建单独的执行器
+
+
+note:
+1；common-scheduler/doc/sql/xxl_job.sql文件为xxl-job-admin项目的表结构
+2；xxl-job-admin项目由自己构建部署成功后方可进行定时任务执行器的注册
+3；xxl-job学习地址：https://www.xuxueli.com/xxl-job/
