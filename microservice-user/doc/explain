@@ -1,0 +1,58 @@
+microservice-user
+
+info:
+1；microservice-user子项目为springcloud的后台管理项目
+2；集成了shardingsphere的组件sharding-jdbc实现分库分表
+3；核心依赖为：
+                     <!--or spring boot -->
+                    <dependency>
+                        <groupId>io.shardingsphere</groupId>
+                        <artifactId>sharding-jdbc-spring-boot-starter</artifactId>
+                        <version>3.0.0</version>
+                    </dependency>
+                    <!-- for spring namespace -->
+                    <dependency>
+                        <groupId>io.shardingsphere</groupId>
+                        <artifactId>sharding-jdbc-spring-namespace</artifactId>
+                        <version>3.0.0</version>
+                    </dependency>
+4；yml配置如下
+    sharding:
+      jdbc:
+        datasource:
+          names: ds0,ds1
+          # 数据源ds0
+          ds0:
+            type: com.alibaba.druid.pool.DruidDataSource
+            driver-class-name: com.mysql.cj.jdbc.Driver
+            url: jdbc:mysql://localhost:3306/springcloud?useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=CONVERT_TO_NULL&allowMultiQueries=true&useSSL=false
+            username: root
+            password: 111111
+          ds1:
+            type: com.alibaba.druid.pool.DruidDataSource
+            driver-class-name: com.mysql.cj.jdbc.Driver
+            url: jdbc:mysql://localhost:3306/scheduler?useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=CONVERT_TO_NULL&allowMultiQueries=true&useSSL=false
+            username: root
+            password: 111111
+        config:
+          sharding:
+            props:
+              sql.show: true
+            tables:
+              t_user:  #t_user表
+                key-generator-column-name: id  #主键
+                actual-data-nodes: ds${0..1}.t_user${0..1}    #数据节点,均匀分布
+                database-strategy:   #分库策略
+                  inline: #行表达式
+                    sharding-column: city_id        #列名称，多个列以逗号分隔
+                    algorithm-expression: ds${city_id % 2}    #按模运算分配
+                table-strategy:  #分表策略
+                  inline: #行表达式
+                    sharding-column: sex
+                    algorithm-expression: t_user${sex % 2}
+
+
+
+note:
+1；microservice-user/doc/sql/sharding-jdbc.sql为测试demo
+2；ShardingSphere学习地址：https://shardingsphere.apache.org/document/legacy/3.x/document/cn/overview/
