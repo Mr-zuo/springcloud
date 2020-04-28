@@ -12,6 +12,10 @@ import org.springframework.context.annotation.Configuration;
 
 import javax.annotation.PostConstruct;
 
+/**
+ * 多种UUID生成方式
+ */
+
 @Slf4j
 @Configuration
 public class IdGenerator {

@@ -8,7 +8,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.codec.binary.Hex;
 
 /**
- * MD5加盐加密
+ * MD5加盐加密，校验工具类
  */
 @Slf4j
 public class PasswordUtils {
