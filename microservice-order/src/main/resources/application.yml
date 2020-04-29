@@ -5,6 +5,11 @@ server:
 spring:
   application:
     name: microservice-order
+  rabbitmq:
+    host: 127.0.0.1
+    port: 5672
+    username: guest
+    password: guest
 #  zipkin:
 #    base-url: http://localhost:8750
 #  sleuth:
@@ -15,4 +20,5 @@ eureka:
   client:
     serviceUrl:
       defaultZone: http://localhost:8761/eureka/
+
 
