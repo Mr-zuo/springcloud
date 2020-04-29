@@ -46,7 +46,7 @@ public class CombatController {
         for (int i = 0; i <20 ; i++) {
             User user=new User();
             user.setName("test"+i);
-            user.setCityId(1%2==0?1:2);
+            user.setCityId(i%2==0?1:2);
             user.setCreateTime(new Date());
             user.setSex(i%2==0?1:2);
             user.setPhone("11111111"+i);

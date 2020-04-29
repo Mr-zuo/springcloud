@@ -54,19 +54,24 @@ sharding:
       ds0:
         type: com.alibaba.druid.pool.DruidDataSource
         driver-class-name: com.mysql.cj.jdbc.Driver
-        url: jdbc:mysql://localhost:3306/springcloud?useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=CONVERT_TO_NULL&allowMultiQueries=true&useSSL=false
+        url: jdbc:mysql://localhost:3306/springcloud1?useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=CONVERT_TO_NULL&allowMultiQueries=true&useSSL=false
         username: root
         password: 111111
       ds1:
         type: com.alibaba.druid.pool.DruidDataSource
         driver-class-name: com.mysql.cj.jdbc.Driver
-        url: jdbc:mysql://localhost:3306/scheduler?useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=CONVERT_TO_NULL&allowMultiQueries=true&useSSL=false
+        url: jdbc:mysql://localhost:3306/springcloud?useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=CONVERT_TO_NULL&allowMultiQueries=true&useSSL=false
         username: root
         password: 111111
     config:
       sharding:
         props:
           sql.show: true
+#        binding-tables: t_user
+#        default-database-strategy:
+#          inline:
+#            algorithm-expression: ds${city_id % 2}
+#            sharding-column: city_id
         tables:
           t_user:  #t_user表
             key-generator-column-name: id  #主键
