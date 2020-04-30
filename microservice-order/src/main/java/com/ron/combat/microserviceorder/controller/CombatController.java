@@ -15,6 +15,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.UUID;
@@ -64,9 +65,9 @@ public class CombatController {
     /**
      * 测试死信队列. http://localhost:8082/dead/deadLetter?p=11234
      */
-    @ApiOperation(value = "rabbitmq的send3", httpMethod = "POST",notes ="")
+    @ApiOperation(value = "rabbitmq的send4", httpMethod = "POST",notes ="")
     @PostMapping(value = "deadLetter")
-    public ResponseEntity.BodyBuilder deadLetter(String p) {
+    public ResponseEntity.BodyBuilder deadLetter(@RequestParam("p") String p) {
 
         CorrelationData correlationData = new CorrelationData(UUID.randomUUID().toString());
 
