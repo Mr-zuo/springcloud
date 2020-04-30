@@ -1,0 +1,29 @@
+microservice-order
+
+info:
+1；microservice-order子项目为springcloud的订单微服务
+2；集成了rabbitmq作为消息中间件
+3；核心依赖为：
+                    <dependency>
+                        <groupId>org.springframework.boot</groupId>
+                        <artifactId>spring-boot-starter-amqp</artifactId>
+                    </dependency>
+4：yml配置为：
+      spring:
+        rabbitmq:
+            host: 127.0.0.1
+            port: 5672
+            username: guest
+            password: guest
+            connection-timeout: 2000ms
+            publisher-confirms: true  #生产者确认消息  confirmListener
+            publisher-returns: true   #消息未被消费则原封不动返回，不被处理  returnListener
+            listener:
+              simple:
+                acknowledge-mode: manual
+                retry:
+                  enabled: true
+                  max-attempts: 3
+
+ note:
+ 1：简单实现了rabbitmq的topic模式，消息确认机制，死信队列的使用
