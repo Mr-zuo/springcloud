@@ -1,4 +1,4 @@
-package com.ron.combat.microserviceorder.demo;
+package com.ron.combat.microserviceorder.demo.rabbitmq;
 
 import org.springframework.amqp.core.AmqpTemplate;
 import org.springframework.beans.factory.annotation.Autowired;

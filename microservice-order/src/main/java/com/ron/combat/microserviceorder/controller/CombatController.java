@@ -1,7 +1,7 @@
 package com.ron.combat.microserviceorder.controller;
 
 
-import com.ron.combat.microserviceorder.demo.Sender;
+import com.ron.combat.microserviceorder.demo.rabbitmq.Sender;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
