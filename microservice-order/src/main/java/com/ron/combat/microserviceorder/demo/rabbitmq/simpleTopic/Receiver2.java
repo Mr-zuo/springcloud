@@ -1,4 +1,4 @@
-package com.ron.combat.microserviceorder.demo.rabbitmq;
+package com.ron.combat.microserviceorder.demo.rabbitmq.simpleTopic;
 
 
 import org.springframework.amqp.rabbit.annotation.RabbitHandler;
