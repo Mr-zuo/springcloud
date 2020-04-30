@@ -11,17 +11,17 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class RabbitMqConfig {
 
-    final static String message = "q_topic_message";
-    final static String messages = "q_topic_messages";
+    final static String queue_a = "queue_a";
+    final static String queue_b = "queue_b";
 
     @Bean
-    public Queue queueMessage() {
-        return new Queue(RabbitMqConfig.message);
+    public Queue queue_a() {
+        return new Queue(RabbitMqConfig.queue_a);
     }
 
     @Bean
-    public Queue queueMessages() {
-        return new Queue(RabbitMqConfig.messages);
+    public Queue queue_b() {
+        return new Queue(RabbitMqConfig.queue_b);
     }
 
     /**
@@ -30,22 +30,22 @@ public class RabbitMqConfig {
      */
     @Bean
     TopicExchange exchange() {
-        return new TopicExchange("mybootexchange");
+        return new TopicExchange("demo_exchange");
     }
 
     /**
      * 绑定Q到交换机,并且指定routingKey
-     * @param queueMessage
+     * @param queue_a
      * @param exchange
      * @return
      */
     @Bean
-    Binding bindingExchangeMessage(Queue queueMessage, TopicExchange exchange) {
-        return BindingBuilder.bind(queueMessage).to(exchange).with("topic.message");
+    Binding bindingExchangeMessage(Queue queue_a, TopicExchange exchange) {
+        return BindingBuilder.bind(queue_a).to(exchange).with("topic.q.a");
     }
 
     @Bean
-    Binding bindingExchangeMessages(Queue queueMessages, TopicExchange exchange) {
-        return BindingBuilder.bind(queueMessages).to(exchange).with("topic.#");
+    Binding bindingExchangeMessages(Queue queue_b, TopicExchange exchange) {
+        return BindingBuilder.bind(queue_b).to(exchange).with("topic.#");
     }
 }

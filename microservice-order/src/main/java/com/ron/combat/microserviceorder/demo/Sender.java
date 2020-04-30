@@ -15,13 +15,13 @@ public class Sender {
     public void send1() {
         String context = "hi, i am message 1";
         System.out.println("Sender : " + context);
-        this.rabbitTemplate.convertAndSend("mybootexchange", "topic.message", context);
+        this.rabbitTemplate.convertAndSend("demo_exchange", "topic.q.a", context);
     }
 
 
     public void send2() {
         String context = "hi, i am messages 2";
         System.out.println("Sender : " + context);
-        this.rabbitTemplate.convertAndSend("mybootexchange", "topic.messages", context);
+        this.rabbitTemplate.convertAndSend("demo_exchange", "topic.q.b", context);
     }
 }
