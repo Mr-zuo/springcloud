@@ -22,7 +22,7 @@
         <module>common-zuul</module>            <!--8760 -->
         <module>config-client</module>          <!--8780 -->
         <module>config-server</module>          <!--8790 -->
-        <module>discovery-center</module>       <!--8761 -->
+        <module>discovery-center</module>       <!--8720 -->
         <module>microservice-admin</module>     <!--7901 -->
         <module>microservice-movie</module>     <!--7911 -->
         <module>microservice-order</module>     <!--7921 -->
