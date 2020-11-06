@@ -22,9 +22,9 @@ public class DataStructure {
 //        s7_test1();
 //        s7_test2();//TODO
 //        s8_test1();
-//        s8_test2();
+        s8_test2();
 //        s8_test3();
-        s10_test1();
+//        s10_test1();
     }
 
     /**
@@ -75,7 +75,7 @@ public class DataStructure {
     //时间复杂度O(nm2),空间复杂度O(1)
     public static void s8_test2(){
         String a = "123456";
-        String b = "174562439";
+        String b = "127456862439";
         String maxSubStr = "";
         int max_len = 0;
         for (int i =0; i<a.length();i++){
@@ -246,7 +246,7 @@ public class DataStructure {
         for (int i = 0; i<s.length(); i++){
             char c = s.charAt(i);
             stack.push(c);
-            if ((i+1)%3==0||(i+1)==s.length()){
+            if ((i+1)%k==0||(i+1)==s.length()){
                 while (!stack.isEmpty()){
                     char p = (char) stack.pop();
                     result+=p;
@@ -276,6 +276,7 @@ public class DataStructure {
         int a[] = { 1,2,3,4,5,5,6 };
         Map<Integer,Integer> map = new HashMap<>();
         int val_max = -1;
+        int val = -1;
         for (int i = 0; i < a.length; i++) {
             if (map.containsKey(a[i])){
                 map.put(a[i],map.get(a[i])+1);
@@ -284,9 +285,10 @@ public class DataStructure {
             }
             if (map.get(a[i])>val_max){
                 val_max=map.get(a[i]);
+                val = i;
             }
         }
-        System.out.println(val_max);
+        System.out.println(a[val]);
     }
 
     //时间复杂度O(n2),空间复杂度O(1)
