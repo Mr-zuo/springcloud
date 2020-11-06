@@ -31,7 +31,7 @@ public class DataStructure {
      * 给定一个整数数组 arr 和一个目标值 target，请你在该数组中找出加和等于目标值的那两个整数，并返回它们的在数组中下标。
      * 例如，arr = [1, 2, 3, 4, 5, 6]，target = 4。因为，arr[0] + arr[2] = 1 + 3 = 4 = target，则输出 0，2。
      */
-    //时间复杂度O(n2),空间复杂度O(n)
+    //时间复杂度O(n),空间复杂度O(n)
     public static void s10_test1(){
         int a[] = {1, 2, 3, 4, 5, 6};
         int target = 7;
@@ -40,17 +40,13 @@ public class DataStructure {
             map.put(a[i],i);
         }
         for (Integer key :map.keySet()){
-            for (int i=0;i<a.length;i++){
                 int j = target-key;
                 if (key>j) break;
                 if (map.containsKey(j)&&(!map.get(key).equals(map.get(j)))){
                     System.out.print(map.get(key));
                     System.out.print(",");
                     System.out.println(map.get(j));
-                    break;
                 }
-            }
-
         }
     }
 
