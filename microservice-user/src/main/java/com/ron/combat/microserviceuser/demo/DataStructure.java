@@ -22,9 +22,104 @@ public class DataStructure {
 //        s7_test1();
 //        s7_test2();//TODO
 //        s8_test1();
-        s8_test2();
+//        s8_test2();
 //        s8_test3();
 //        s10_test1();
+//        s11_test1();//TODO 待理解
+//        s11_test2();//TODO
+//        s12_test1();
+        s12_test2();
+    }
+
+    /**
+     * 在数组 { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 } 中，查找 8 是否出现过。
+     */
+    //时间复杂度？,空间复杂度？
+    public static void s12_test1(){
+        int targetNumb = 8;
+        int[] arr = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+        int middle = 0;
+        int low = 0;
+        int high = arr.length-1;
+        int isFind = 0;
+        while (low<=high){
+            middle = (low+high)/2;
+            if (arr[middle]==targetNumb){
+                isFind = 1;
+                System.out.println(targetNumb + " 在数组中,下标值为: " + middle);
+                break;
+            }else if (arr[middle]<targetNumb){
+                low = middle+1;
+            }else {
+                high = middle-1;
+            }
+        }
+        System.out.println(isFind);
+
+    }
+
+    /**
+     * 在一个有序数组中，查找出第一个大于 9 的数字，假设一定存在。例如，arr = { -1, 3, 3, 7, 10, 14, 14 }; 则返回 10。
+     */
+    //时间复杂度？,空间复杂度？
+    public static void s12_test2(){
+        int targetNumb = 9;
+        int[] arr = { -1, 3, 3, 7, 10, 14, 14 };
+        int middle = 0;
+        int low = 0;
+        int high = arr.length-1;
+        while (low<=high){
+            middle = (low+high)/2;
+            if (arr[middle]>targetNumb&&(middle==0||arr[middle-1]<=targetNumb)){
+                System.out.println("第一个比 " + targetNumb + " 大的数字是 " + arr[middle]);
+                break;
+            }else if (arr[middle]<targetNumb){
+                low = middle+1;
+            }else {
+                high = middle-1;
+            }
+        }
+    }
+
+    /**
+     * 斐波那契数列。斐波那契数列是：0，1，1，2，3，5，8，13，21，34，55，89，144……。你会发现，
+     * 这个数列中元素的性质是，某个数等于它前面两个数的和；也就是 a[n+2] = a[n+1] + a[n]。至于起始两个元素，则分别为 0 和 1。在这个数列中的数字，就被称为斐波那契数。
+     *
+     * 写一个函数，输入 x，输出斐波那契数列中第 x 位的元素。例如，输入 4，输出 2；输入 9，输出 21。要求：需要用递归的方式来实现。
+     */
+    //时间复杂度？,空间复杂度？
+    public static void s11_test2(){
+        int i = 4;
+        finonacci(i);
+    }
+
+    private static void finonacci(int i) {
+
+    }
+
+    /**
+     * 汉诺塔问题:
+     * 从左到右有 x、y、z 三根柱子，其中 x 柱子上面有从小叠到大的 n 个圆盘。现要求将 x 柱子上的圆盘移到 z 柱子上去。
+     * 要求是，每次只能移动一个盘子，且大盘子不能被放在小盘子上面。求移动的步骤。
+     */
+    //时间复杂度？,空间复杂度？
+    public static void s11_test1(){
+        String x = "x";
+        String y = "y";
+        String z = "z";
+        hanio(3, x, y, z);
+    }
+    private static void hanio(int n, String x, String y, String z) {
+        if (n < 1) {
+            System.out.println("汉诺塔的层数不能小于1");
+        } else if (n == 1) {
+            System.out.println("移动: " + x + " -> " + z);
+            return;
+        } else {
+            hanio(n - 1, x, z, y);
+            System.out.println("移动: " + x + " -> " + z);
+            hanio(n - 1, y, x, z);
+        }
     }
 
     /**
