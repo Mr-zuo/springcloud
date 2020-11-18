@@ -20,15 +20,79 @@ public class DataStructure {
 //        s5_test1();
 //        s6_test1();
 //        s7_test1();
-//        s7_test2();//TODO
+//        s7_test2();
 //        s8_test1();
 //        s8_test2();
 //        s8_test3();
 //        s10_test1();
+//        s10_test2();
 //        s11_test1();//TODO 待理解
-//        s11_test2();//TODO
+//        s11_test2();
 //        s12_test1();
-        s12_test2();
+//        s12_test2();
+//        s19_test1();
+        s22_test1();
+    }
+
+    /**
+     * 在这个题目中，输入就是前缀表达式，输出就是计算的结果。你可以假设除法为整除，即 “5/3 = 1”。
+     * 例如，输入字符串为 + 2 3，输出 5；输入字符串为 * + 2 2 3，输出为 12；输入字符串为 * 2 + 2 3，输出为 10。
+     */
+    //时间复杂度是 O(n)，空间复杂度是 O(n)
+    public static void s22_test1(){
+        Stack<Object> stack = new Stack<Object>();
+        String s = "* + 2 2 3";
+        String[] arr = s.split(" ");
+        for (int i = arr.length-1 ; i>=0 ;i--){
+            if (!(arr[i].equals("+")||arr[i].equals("-")||arr[i].equals("*")||arr[i].equals("/"))){
+                stack.push(Integer.parseInt(arr[i]));
+            }else {
+                int a = (Integer) stack.pop();
+                int b = (Integer) stack.pop();
+                int result = calculate(a,b,arr[i]);
+                stack.push(result);
+            }
+        }
+        Integer value = (Integer)stack.pop();
+        System.out.println(value);
+    }
+
+    private static int calculate(int a, int b, String s) {
+        switch(s){
+            case "+":
+                return a+b;
+            case "-":
+                return a-b;
+            case "*":
+                return a*b;
+            case "/":
+                return a/b;
+        }
+        return 0;
+    }
+
+    /**
+     * 假设在一个数组中，有一个数字出现的次数超过数组长度的一半，现在要求你找出这个数字。
+     * 例如，输入 a = {1,2,1,1,2,4,1,5,1}，输出 1。
+     */
+    //时间复杂度是 O(n)，空间复杂度是 O(1)
+    public static void s19_test1(){
+        int[] a = {5,2,1,1,2,4,1,1,1};
+        int result = a[0];
+        int times = 1;
+        for (int i = 1; i < a.length; i++) {
+            if (a[i] != result) {
+                times--;
+            }
+            else {
+                times++;
+            }
+            if (times == -1) {
+                times = 1;
+                result = a[i];
+            }
+        }
+        System.out.println(result);
     }
 
     /**
@@ -89,12 +153,18 @@ public class DataStructure {
      */
     //时间复杂度？,空间复杂度？
     public static void s11_test2(){
-        int i = 4;
-        finonacci(i);
+        int i = 9;
+        System.out.println(finonacci(i));
     }
 
-    private static void finonacci(int i) {
-
+    private static int finonacci(int n) {
+        if (n == 1) {
+            return 0;
+        }
+        if (n == 2) {
+            return 1;
+        }
+        return finonacci(n - 1) + finonacci(n - 2);
     }
 
     /**
@@ -128,7 +198,7 @@ public class DataStructure {
      */
     //时间复杂度O(n),空间复杂度O(n)
     public static void s10_test1(){
-        int a[] = {1, 2, 3, 4, 5, 6};
+        int a[] = {1, 2, 3, 4, 5, 6, 7, 0};
         int target = 7;
         Map<Integer,Integer> map = new HashMap<>();
         for (int i=0;i<a.length;i++){
@@ -142,6 +212,27 @@ public class DataStructure {
                     System.out.print(",");
                     System.out.println(map.get(j));
                 }
+        }
+    }
+
+    /**
+     * 给定一个整数数组 arr 和一个目标值 target，请你在该数组中找出加和等于目标值的那两个整数，并返回它们的在数组中下标。
+     * 例如，arr = [1, 2, 3, 4, 5, 6]，target = 4。因为，arr[0] + arr[2] = 1 + 3 = 4 = target，则输出 0，2。
+     */
+    //时间复杂度O(n),空间复杂度O(n)
+    public static void s10_test2(){
+        int a[] = {1, 2, 3, 4, 5, 6, 7, 0,1, 2, 3, 4, 5, 6, 7, 0};
+        int target = 7;
+        Map<Integer,Integer> map = new HashMap<>();
+        for (int i=0;i<a.length;i++){
+            map.put(a[i],i);
+
+            int j =target -a[i];
+            if (map.containsKey(j)&&(!map.get(a[i]).equals(map.get(j)))){
+                System.out.print(map.get(a[i]));
+                System.out.print(",");
+                System.out.println(map.get(j));
+            }
         }
     }
 
@@ -221,16 +312,14 @@ public class DataStructure {
      */
     //时间复杂度O(n),空间复杂度O(1)
     public static void s7_test2(){
-        //TODO
-        int a[] = { 0,0,1,1,1,2,0,3,3,4 };
-        List<Integer> list = new ArrayList<>();
-        for (int i =0; i<a.length-1;i++){
-            for (int j=i+1;j<a.length-1;j++){
-                if (a[i]==a[j]){
-                    for (;j<a.length-1;j++){
-                        a[j]=a[j+1];
-                    }
-                }
+        int a[] = { 0,0,1,1,1,2,3,3,4 };
+        int temp = a[0];
+        int j = 1;
+        for (int i =1; i<a.length;i++){
+            if (a[i]!=temp){
+                a[j] = a[i];
+                temp = a[i];
+                j++;
             }
         }
 
